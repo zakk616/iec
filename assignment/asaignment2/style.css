@@ -1,13 +1,47 @@
 body {
-  font-family: "Noto", Sans;
-  width: 100%;
+  font-family: "Shippori Antique B1", sans-serif;
   margin: 0;
   padding: 0;
 }
+
 .nav {
-  height: 50px;
-  width: 100%;
+  width: 85%;
   background-color: #ffffff;
+  margin: auto;
+  text-align: center;
+}
+
+.nav ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+  position: relative;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  font-size: 14px;
+  color: dimgrey;
+  text-transform: uppercase;
+}
+
+.nav ul li a::after {
+  content: "";
+  height: 3px;
+  width: 0;
+  background: #6cb3db;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  transition: 0.5s;
+}
+
+.nav ul li a:hover::after {
+  width: 100%;
+}
+
+.nav a:hover::after {
+  color: #6cb3db;
 }
 
 .title {
@@ -15,6 +49,8 @@ body {
   width: 100%;
   text-align: center;
   background-color: #6cb3db;
+  background-image: url("bg.jpg");
+  background-repeat: no-repeat;
 }
 
 .title h1 {
@@ -53,41 +89,16 @@ h4 {
   text-transform: uppercase;
 }
 
-.col-1 {
-  width: 8.33%;
+.row {
+  width: 100%;
+  text-align: center;
 }
+
 .col-2 {
   width: 12.5%;
 }
 .col-3 {
   width: 25%;
-}
-.col-4 {
-  width: 33.33%;
-}
-.col-5 {
-  width: 41.66%;
-}
-.col-6 {
-  width: 50%;
-}
-.col-7 {
-  width: 58.33%;
-}
-.col-8 {
-  width: 66.66%;
-}
-.col-9 {
-  width: 75%;
-}
-.col-10 {
-  width: 83.33%;
-}
-.col-11 {
-  width: 91.66%;
-}
-.col-12 {
-  width: 100%;
 }
 
 .col-2,
@@ -98,6 +109,7 @@ h4 {
 
 .col-2 p {
   font-size: 0.75em;
+  color: dimgrey;
 }
 
 .fa {
