@@ -1,0 +1,60 @@
+body {
+  text-align: center;
+  background: lightblue;
+}
+
+.btn,
+.txt {
+  background: lightblue;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.container {
+  background: lightseagreen;
+  margin: auto;
+  border: 1px solid gray;
+  width: 190px;
+  padding: 10px;
+  box-shadow: 5px 10px 18px #888888;
+}
+
+#table {
+  width: 170px;
+  padding: 10px;
+}
+.row {
+  display: flex;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+}
+
+.box {
+  margin: auto;
+}
+
+#num {
+  background: darkgray;
+  border: 1px solid blueviolet;
+  width: 40px;
+  height: 20px;
+  text-align: center;
+  padding: 3px;
+  margin: 2px;
+  box-shadow: 5px 10px 18px #888888;
+}
+
+#operator {
+  /* border: 1px solid red; */
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  padding: 3px;
+  margin: 2px;
+}
+
+.child {
+  display: inline-block;
+  margin: 2px;
+}

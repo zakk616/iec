@@ -1,11 +1,14 @@
 <html>
   <head>
     <title>Table Generator</title>
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
   </head>
   <body>
-    <input type="text" id="number" value="" />
-    <button onclick="generateTable()">Generate</button>
-    <p id="table"></p>
+    <div class="container">
+      <input type="number" class="txt" id="number" value="" />
+      <button class="btn" onclick="generateTable()">Generate</button>
+      <div class="box" id="table"></div>
+    </div>
   </body>
 </html>
