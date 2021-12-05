@@ -1,0 +1,125 @@
+<html>
+  <head>
+    <title>Geo Location</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+
+    <style>
+      #footer {
+        position: fixed;
+        left: 0px;
+        bottom: 0px;
+        width: 100%;
+      }
+
+      #header {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+      }
+
+      #main {
+        text-align: center;
+        padding-top: 50px;
+        width: 100%;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(onPosition, onError);
+        } else {
+          alert("location info not avilabe");
+        }
+      };
+
+      function onPosition(position) {
+        console.log(position);
+        var lat = position.coords.latitude;
+        var long = position.coords.longitude;
+
+        document.getElementById("lat").innerHTML =
+          "<strong>" + lat + "</strong>";
+
+        document.getElementById("long").innerHTML =
+          "<strong>" + long + "</strong>";
+
+        locateMap(lat, long);
+      }
+
+      function onError(e) {
+        alert(e.message);
+      }
+
+      function locateMap(lat, long) {
+        var mymap = L.map("mapid").setView([lat, long], 16);
+
+        L.tileLayer(
+          "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw",
+          {
+            maxZoom: 18,
+            attribution:
+              'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+              'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            id: "mapbox/streets-v11",
+            tileSize: 512,
+            zoomOffset: -1,
+          }
+        ).addTo(mymap);
+
+        //marker
+        var marker = L.marker([lat, long]).addTo(mymap);
+
+        //tooltip
+        var tooltip = L.tooltip({ permanent: true }).setContent(
+          "Your Location"
+        );
+        marker.bindTooltip(tooltip);
+      }
+    </script>
+  </head>
+  <body>
+    <div data-role="page">
+      <div data-role="header" id="header">
+        <h1>Geolocation</h1>
+      </div>
+
+      <div data-role="main" id="main" class="ui-content container">
+        <p>Latitude: <span id="lat"></span></p>
+        <p>Longitude: <span id="long"></span></p>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div id="mapid" style="width: 100%; height: 400px"></div>
+          </div>
+        </div>
+      </div>
+
+      <script></script>
+
+      <div data-role="footer" id="footer">
+        <h1>Copyright &copy; 2017</h1>
+      </div>
+    </div>
+  </body>
+</html>
