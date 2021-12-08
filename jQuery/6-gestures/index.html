@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>Gestures</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="hammer.min.js"></script>
+    <script src="hammer-time.js"></script>
+    <script>
+      window.onload = function () {
+        var h = window.innerHeight;
+        h = h - 150;
+        document.getElementById("main").style.height = h + "px";
+        var main = document.getElementById("main");
+        var hammertime = new Hammer(main);
+
+        hammertime.get("swipe").set({ direction: Hammer.DIRECTION_ALL });
+        hammertime.on(
+          "tap press swipeleft swiperight swipeup swipedown",
+          function (event) {
+            console.log(event.type);
+            main.innerHTML = "<h2>" + event.type + "</h2>";
+          }
+        );
+      };
+    </script>
+  </head>
+  <body>
+    <div data-role="page">
+      <div data-role="header" id="header">
+        <h1>Gestures</h1>
+      </div>
+
+      <div data-role="main" id="main"></div>
+
+      <div data-role="footer" id="footer" style="text-align: center">
+        Footer
+      </div>
+    </div>
+  </body>
+</html>
