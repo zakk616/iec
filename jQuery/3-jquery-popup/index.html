@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <title>jQuery Popup</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <style>
+      #footer {
+        position: fixed;
+        left: 0px;
+        bottom: 0px;
+        width: 100%;
+      }
+
+      #header {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+      }
+
+      #main {
+        text-align: center;
+        padding-top: 50px;
+      }
+
+      #icon {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div data-role="page">
+      <div data-role="header" id="header">
+        <h1>jQuery Popup</h1>
+      </div>
+
+      <div data-role="main" id="main" class="ui-content">
+        <a
+          href="#popup"
+          data-rel="popup"
+          class="ui-btn ui-icon-alert ui-btn-icon-left"
+          >Open Popup</a
+        >
+
+        <div data-role="popup" id="popup">
+          <div data-role="header"><h3>Header</h3></div>
+          <div data-role="main" class="ui-content">
+            This is the popup
+            <img
+              id="icon"
+              src="https://www.freeiconspng.com/thumbs/alert-icon/alert-icon-red-11.png"
+              alt="alert-icon"
+            />
+          </div>
+          <div data-role="footer"><h3>Footer</h3></div>
+        </div>
+      </div>
+
+      <div data-role="footer" id="footer">
+        <h1>Copyright &copy; 2021</h1>
+      </div>
+    </div>
+  </body>
+</html>
