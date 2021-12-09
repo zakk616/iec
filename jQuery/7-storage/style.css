@@ -1,0 +1,27 @@
+#footer {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+}
+
+#header {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+}
+
+#main,
+#Appmain {
+  text-align: center;
+  padding-top: 50px;
+}
+
+#icon {
+  width: 100%;
+}
+
+#navbar {
+  padding-top: 40px;
+}

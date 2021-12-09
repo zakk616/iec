@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <title>Storage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      window.onload = function () {
+        document.getElementById("save").addEventListener("click", saveData);
+      };
+
+      function saveData(e) {
+        userName = document.getElementById("username").value;
+
+        // sessionStorage.username = userName;
+        localStorage.username = userName;
+        $.mobile.changePage("#application", {
+          transition: "slideup",
+          changeHash: false,
+        });
+
+        // var out = "Welcome " + sessionStorage.username;
+        var out = "Welcome " + localStorage.username;
+
+        document.getElementById("Appmain").innerHTML = "<h2>" + out + "!</h2>";
+      }
+    </script>
+  </head>
+  <body>
+    <div data-role="page" id="login">
+      <div data-role="header" id="header">
+        <h1>Storage</h1>
+      </div>
+
+      <div data-role="main" id="main" class="ui-content">
+        <input
+          type="text"
+          placeholder="Username"
+          id="username"
+          class="ui-shadow"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          id="password"
+          class="ui-shadow"
+        />
+        <button id="save" class="ui-btn ui-corner-all ui-shadow">Save</button>
+      </div>
+
+      <div data-role="footer" id="footer" style="text-align: center">
+        <h1>Footer</h1>
+      </div>
+    </div>
+    <!-- login page -->
+
+    <div data-role="page" id="application">
+      <div data-role="header" id="header">
+        <h1>Storage</h1>
+      </div>
+
+      <div data-role="main" id="Appmain" class="ui-content"></div>
+
+      <div data-role="footer" id="footer" style="text-align: center">
+        <h1>Footer</h1>
+      </div>
+    </div>
+    <!-- app page -->
+  </body>
+</html>
