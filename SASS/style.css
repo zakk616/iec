@@ -1,0 +1,14 @@
+body {
+  background-color: lightblue; }
+
+h1 {
+  color: black; }
+
+.circle {
+  background-color: white;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #333333; }
+
+/*# sourceMappingURL=style.css.map */
