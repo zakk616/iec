@@ -1,0 +1,9 @@
+body {
+  background: #51546a;
+  color: #fff;
+}
+.parent-1 {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
