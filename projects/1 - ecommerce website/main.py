@@ -12,24 +12,6 @@ UPLOAD_FOLDER = 'static/uploads'
 ALLOWED_EXTENSIONS = set(['jpeg', 'jpg', 'png', 'gif'])
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-# Home page
-
-
-@app.route("/")
-def root():
-    loggedIn, firstName, noOfItems = getLoginDetails()
-    with sqlite3.connect('database.db') as conn:
-        cur = conn.cursor()
-        cur.execute(
-            'SELECT productId, name, price, description, image, stock FROM products')
-        itemData = cur.fetchall()
-        cur.execute('SELECT categoryId, name FROM categories')
-        categoryData = cur.fetchall()
-    itemData = parse(itemData)
-    return render_template('home.html', itemData=itemData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems, categoryData=categoryData)
-
-# Fetch user details if logged in
-
 
 def getLoginDetails():
     with sqlite3.connect('database.db') as conn:
@@ -49,7 +31,19 @@ def getLoginDetails():
     conn.close()
     return (loggedIn, firstName, noOfItems)
 
-# Add item to cart
+
+@app.route("/")
+def root():
+    loggedIn, firstName, noOfItems = getLoginDetails()
+    with sqlite3.connect('database.db') as conn:
+        cur = conn.cursor()
+        cur.execute(
+            'SELECT productId, name, price, description, image, stock FROM products')
+        itemData = cur.fetchall()
+        cur.execute('SELECT categoryId, name FROM categories')
+        categoryData = cur.fetchall()
+    itemData = parse(itemData)
+    return render_template('home.html', itemData=itemData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems, categoryData=categoryData)
 
 
 @app.route("/addItem", methods=["GET", "POST"])
@@ -81,8 +75,6 @@ def addItem():
         print(msg)
         return redirect(url_for('root'))
 
-# Remove item from cart
-
 
 @app.route("/removeItem")
 def removeItem():
@@ -99,8 +91,6 @@ def removeItem():
     conn.close()
     print(msg)
     return redirect(url_for('root'))
-
-# Display all items of a category
 
 
 @app.route("/displayCategory")
@@ -123,6 +113,20 @@ def profileHome():
         return redirect(url_for('root'))
     loggedIn, firstName, noOfItems = getLoginDetails()
     return render_template("profileHome.html", loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems)
+
+
+@app.route("/account/profile/view")
+def viewProfile():
+    if 'email' not in session:
+        return redirect(url_for('root'))
+    loggedIn, firstName, noOfItems = getLoginDetails()
+    with sqlite3.connect('database.db') as conn:
+        cur = conn.cursor()
+        cur.execute(
+            "SELECT userId, email, firstName, lastName, address1, address2, zipcode, city, state, country, phone FROM users WHERE email = '" + session['email'] + "'")
+        profileData = cur.fetchone()
+    conn.close()
+    return render_template("viewProfile.html", profileData=profileData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems)
 
 
 @app.route("/account/profile/edit")
@@ -168,7 +172,8 @@ def changePassword():
         conn.close()
         return render_template("changePassword.html", msg=msg)
     else:
-        return render_template("changePassword.html")
+        loggedIn, firstName, noOfItems = getLoginDetails()
+        return render_template("changePassword.html", loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems)
 
 
 @app.route("/updateProfile", methods=["GET", "POST"])
@@ -196,7 +201,21 @@ def updateProfile():
                 con.rollback()
                 msg = "Error occured"
         con.close()
-        return redirect(url_for('editProfile'))
+        return redirect(url_for('viewProfile'))
+
+
+@app.route("/test")
+def test():
+    loggedIn, firstName, noOfItems = getLoginDetails()
+    with sqlite3.connect('database.db') as conn:
+        cur = conn.cursor()
+        cur.execute(
+            'SELECT productId, name, price, description, image, stock FROM products')
+        itemData = cur.fetchall()
+        cur.execute('SELECT categoryId, name FROM categories')
+        categoryData = cur.fetchall()
+    itemData = parse(itemData)
+    return render_template('test.html', itemData=itemData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems, categoryData=categoryData)
 
 
 @app.route("/loginForm")

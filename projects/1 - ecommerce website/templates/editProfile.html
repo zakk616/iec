@@ -1,56 +1,180 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<title>Edit Profile </title>
-<link rel="stylesheet" href={{ url_for('static', filename='css/editProfile.css') }} />
-<link rel="stylesheet" href={{ url_for('static', filename='css/topStyle.css') }} />
-</head>
-<body>
-<div id="title">
-	<form>
-		<input id="searchBox" type="text" name="searchQuery">
-		<input id="searchButton" type="submit" value="Search">
-	</form>
+{% extends "layout.html" %} {% block content %}
+    <div class="display container">
+      <div class="card shadow-lg">
+        <div class="card-header">Your Profile</div>
+        <div class="card-body">
+          <form action="/updateProfile" method="POST">
+            <div class="row">
+              <div class="col">
+                <div class="input-group mb">
+                  <div class="input-group-prepend full">
+                    <span class="input-group-text btn-primary"
+                      ><i class="fa fa-arrow-circle-right" aria-hidden="true"
+                        >&nbsp;&nbsp;</i
+                      >Email</span
+                    >
+                  </div>
+                  <input
+                    type="text"
+                    name="email"
+                    class="form-control"
+                    value="{{profileData[1]}}"
+                  />
+                </div>
+                <div class="input-group mb">
+                  <div class="input-group-prepend full">
+                    <span class="input-group-text btn-primary"
+                      ><i class="fa fa-arrow-circle-right" aria-hidden="true"
+                        >&nbsp;&nbsp;</i
+                      >First Name</span
+                    >
+                  </div>
+                  <input
+                    type="text"
+                    name="firstName"
+                    class="form-control"
+                    value="{{profileData[2]}}"
+                  />
+                </div>
 
-	{% if not loggedIn %}
-	<div id="signInButton">
-		<a class="link" href="/loginForm">Sign In</a>
-	</div>
-	{% else %}
-	<div class="dropdown">
-		<button class="dropbtn">Hello, <br>{{firstName}}</button>
-		<div class="dropdown-content">
-			<a href="/account/orders">Your orders</a>
-			<a href="/account/profile">Your profile</a>
-			<hr>
-			<a href="/logout">Sign Out</a>
-		</div>
-	</div>
-	{% endif %}
-	<div id="kart">
-		<a class="link" href="/cart">
-			<img src={{url_for('static', filename='images/shoppingCart.png')}} id="cartIcon" />
-			CART {{noOfItems}}
-		</a>
-	</div>
-</div>
+                <div class="input-group mb">
+                  <div class="input-group-prepend full">
+                    <span class="input-group-text btn-primary"
+                      ><i class="fa fa-arrow-circle-right" aria-hidden="true"
+                        >&nbsp;&nbsp;</i
+                      >Last Name</span
+                    >
+                  </div>
+                  <input
+                    type="text"
+                    name="lastName"
+                    class="form-control"
+                    value="{{profileData[3]}}"
+                  />
+                </div>
 
-<div class="display">
-	<h2>Edit profile</h2>
-	<form action="/updateProfile" method="POST">
-		<p>Email:<input type="email" name="email" value={{profileData[1]}} readonly="readonly"></p>
-		<p>First Name:<input type="text" name="firstName" value={{profileData[2]}}></p>
-		<p>Last Name: <input type="text" name="lastName" value={{profileData[3]}}></p>
-		<p>Address 1: <input type="text" name="address1" value={{profileData[4]}}></p>
-		<p>Address 2: <input type="text" name="address2" value={{profileData[5]}}></p>
-		<p>Zip Code: <input type="text" name="zipcode" value={{profileData[6]}}></p>
-		<p>City: <input type="text" name="city" value={{profileData[7]}}></p>
-		<p>State: <input type="text" name="state" value={{profileData[8]}}></p>
-		<p>Country: <input type="text" name="country" value={{profileData[9]}}></p>
-		<p>Phone Number: <input type="text" name="phone" value={{profileData[10]}}></p>
-		<input type="submit" value="Save">
-	</form>
-</div>
-</body>
-</html>
+                <div class="input-group mb">
+                  <div class="input-group-prepend full">
+                    <span class="input-group-text btn-primary"
+                      ><i class="fa fa-arrow-circle-right" aria-hidden="true"
+                        >&nbsp;&nbsp;</i
+                      >Address 1</span
+                    >
+                  </div>
+                  <input
+                    type="text"
+                    name="address1"
+                    class="form-control"
+                    value="{{profileData[4]}}"
+                  />
+                </div>
+                <div class="input-group mb">
+                  <div class="input-group-prepend full">
+                    <span class="input-group-text btn-primary"
+                      ><i class="fa fa-arrow-circle-right" aria-hidden="true"
+                        >&nbsp;&nbsp;</i
+                      >Address 2</span
+                    >
+                  </div>
+                  <input
+                    type="text"
+                    name="address2"
+                    class="form-control"
+                    value="{{profileData[5]}}"
+                  />
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group mb">
+                  <div class="input-group-prepend full">
+                    <span class="input-group-text btn-primary"
+                      ><i class="fa fa-arrow-circle-right" aria-hidden="true"
+                        >&nbsp;&nbsp;</i
+                      >Zip Code</span
+                    >
+                  </div>
+                  <input
+                    type="text"
+                    name="zipcode"
+                    class="form-control"
+                    value="{{profileData[6]}}"
+                  />
+                </div>
+                <div class="input-group mb">
+                  <div class="input-group-prepend full">
+                    <span class="input-group-text btn-primary"
+                      ><i class="fa fa-arrow-circle-right" aria-hidden="true"
+                        >&nbsp;&nbsp;</i
+                      >City</span
+                    >
+                  </div>
+                  <input
+                    type="text"
+                    name="city"
+                    class="form-control"
+                    value="{{profileData[7]}}"
+                  />
+                </div>
+                <div class="input-group mb">
+                  <div class="input-group-prepend full">
+                    <span class="input-group-text btn-primary"
+                      ><i class="fa fa-arrow-circle-right" aria-hidden="true"
+                        >&nbsp;&nbsp;</i
+                      >State</span
+                    >
+                  </div>
+                  <input
+                    type="text"
+                    name="state"
+                    class="form-control"
+                    value="{{profileData[8]}}"
+                  />
+                </div>
+                <div class="input-group mb">
+                  <div class="input-group-prepend full">
+                    <span class="input-group-text btn-primary"
+                      ><i class="fa fa-arrow-circle-right" aria-hidden="true"
+                        >&nbsp;&nbsp;</i
+                      >Country</span
+                    >
+                  </div>
+                  <input
+                    type="text"
+                    name="country"
+                    class="form-control"
+                    value="{{profileData[9]}}"
+                  />
+                </div>
+                <div class="input-group mb">
+                  <div class="input-group-prepend full">
+                    <span class="input-group-text btn-primary"
+                      ><i class="fa fa-arrow-circle-right" aria-hidden="true"
+                        >&nbsp;&nbsp;</i
+                      >Phone</span
+                    >
+                  </div>
+                  <input
+                    type="text"
+                    name="phone"
+                    class="form-control"
+                    value="{{profileData[10]}}"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <input
+                  type="submit"
+                  class="form-control btn btn-secondary"
+                  value="Save"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <div>{% endblock content %}</div>

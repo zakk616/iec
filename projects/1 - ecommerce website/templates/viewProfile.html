@@ -1,0 +1,179 @@
+{% extends "layout.html" %} {% block content %}
+    <div class="display container">
+      <div class="card shadow-lg">
+        <div class="card-header">Your Profile</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <div class="input-group mb">
+                <div class="input-group-prepend full">
+                  <span class="input-group-text btn-primary"
+                    ><i class="fa fa-arrow-circle-right" aria-hidden="true"
+                      >&nbsp;&nbsp;</i
+                    >Email</span
+                  >
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="{{profileData[1]}}"
+                  disabled
+                />
+              </div>
+              <div class="input-group mb">
+                <div class="input-group-prepend full">
+                  <span class="input-group-text btn-primary"
+                    ><i class="fa fa-arrow-circle-right" aria-hidden="true"
+                      >&nbsp;&nbsp;</i
+                    >First Name</span
+                  >
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="{{profileData[2]}}"
+                  disabled
+                />
+              </div>
+
+              <div class="input-group mb">
+                <div class="input-group-prepend full">
+                  <span class="input-group-text btn-primary"
+                    ><i class="fa fa-arrow-circle-right" aria-hidden="true"
+                      >&nbsp;&nbsp;</i
+                    >Last Name</span
+                  >
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="{{profileData[3]}}"
+                  disabled
+                />
+              </div>
+
+              <div class="input-group mb">
+                <div class="input-group-prepend full">
+                  <span class="input-group-text btn-primary"
+                    ><i class="fa fa-arrow-circle-right" aria-hidden="true"
+                      >&nbsp;&nbsp;</i
+                    >Address 1</span
+                  >
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="{{profileData[4]}}"
+                  disabled
+                />
+              </div>
+              <div class="input-group mb">
+                <div class="input-group-prepend full">
+                  <span class="input-group-text btn-primary"
+                    ><i class="fa fa-arrow-circle-right" aria-hidden="true"
+                      >&nbsp;&nbsp;</i
+                    >Address 2</span
+                  >
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="{{profileData[5]}}"
+                  disabled
+                />
+              </div>
+            </div>
+            <div class="col">
+              <div class="input-group mb">
+                <div class="input-group-prepend full">
+                  <span class="input-group-text btn-primary"
+                    ><i class="fa fa-arrow-circle-right" aria-hidden="true"
+                      >&nbsp;&nbsp;</i
+                    >Zip Code</span
+                  >
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="{{profileData[6]}}"
+                  disabled
+                />
+              </div>
+              <div class="input-group mb">
+                <div class="input-group-prepend full">
+                  <span class="input-group-text btn-primary"
+                    ><i class="fa fa-arrow-circle-right" aria-hidden="true"
+                      >&nbsp;&nbsp;</i
+                    >City</span
+                  >
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="{{profileData[7]}}"
+                  disabled
+                />
+              </div>
+              <div class="input-group mb">
+                <div class="input-group-prepend full">
+                  <span class="input-group-text btn-primary"
+                    ><i class="fa fa-arrow-circle-right" aria-hidden="true"
+                      >&nbsp;&nbsp;</i
+                    >State</span
+                  >
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="{{profileData[8]}}"
+                  disabled
+                />
+              </div>
+              <div class="input-group mb">
+                <div class="input-group-prepend full">
+                  <span class="input-group-text btn-primary"
+                    ><i class="fa fa-arrow-circle-right" aria-hidden="true"
+                      >&nbsp;&nbsp;</i
+                    >Country</span
+                  >
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="{{profileData[9]}}"
+                  disabled
+                />
+              </div>
+              <div class="input-group mb">
+                <div class="input-group-prepend full">
+                  <span class="input-group-text btn-primary"
+                    ><i class="fa fa-arrow-circle-right" aria-hidden="true"
+                      >&nbsp;&nbsp;</i
+                    >Phone</span
+                  >
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="{{profileData[10]}}"
+                  disabled
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <a
+                href="/account/profile/edit"
+                class="form-control btn btn-secondary"
+              >
+                Edit Profile
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>{% endblock content %}</div>
