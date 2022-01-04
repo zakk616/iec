@@ -5,7 +5,7 @@
       <ul class="category-list">
         {% for row in categoryData %}
         <li>
-          <a href="/displayCategory?categoryId={{row[0]}}" class="btn btn-primary">{{row[1]}}</a>
+          <a href="/displayCategory?categoryId={{row[0]}}" class="btn btn-primary shadow">{{row[1]}}</a>
         </li>
         {% endfor %}
       </ul>
@@ -23,7 +23,7 @@
             <img src={{ url_for('static', filename='uploads/' + row[4]) }}
             id="itemImage" />
           </p>
-          <a href="/productDescription?productId={{row[0]}}" class="btn btn-primary">Add to Cart</a>
+          <a href="/productDescription?productId={{row[0]}}" class="btn btn-primary shadow">Add to Cart</a>
         </div>
         <div class="card-footer text-muted">
             Rs {{row[2]}}
