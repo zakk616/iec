@@ -3,7 +3,6 @@ import sqlite3
 import hashlib
 import os
 from werkzeug.utils import secure_filename
-from instamojo_wrapper import Instamojo
 import requests
 
 app = Flask(__name__)
@@ -73,23 +72,29 @@ def addItem():
         conn.close()
         print(msg)
         return redirect(url_for('root'))
+    else:
+        return render_template("addItem.html")
 
 
 @app.route("/removeItem")
 def removeItem():
-    productId = request.args.get('productId')
-    with sqlite3.connect('database.db') as conn:
-        try:
-            cur = conn.cursor()
-            cur.execute('DELETE FROM products WHERE productID = ' + productId)
-            conn.commit()
-            msg = "Deleted successsfully"
-        except:
-            conn.rollback()
-            msg = "Error occured"
-    conn.close()
-    print(msg)
-    return redirect(url_for('root'))
+    if request.method == "POST":
+        productId = request.args.get('productId')
+        with sqlite3.connect('database.db') as conn:
+            try:
+                cur = conn.cursor()
+                cur.execute(
+                    'DELETE FROM products WHERE productID = ' + productId)
+                conn.commit()
+                msg = "Deleted successsfully"
+            except:
+                conn.rollback()
+                msg = "Error occured"
+        conn.close()
+        print(msg)
+        return redirect(url_for('root'))
+    else:
+        return render_template("removeItem.html")
 
 
 @app.route("/displayCategory")
@@ -319,15 +324,15 @@ def checkout():
     return render_template("checkout.html", products=products, totalPrice=totalPrice, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems)
 
 
-@app.route("/instamojo")
-def instamojo():
-    return render_template("instamojo.html")
-
-
 @app.route("/logout")
 def logout():
     session.pop('email', None)
     return redirect(url_for('root'))
+
+
+@app.route("/cpanel")
+def cpanel():
+    return render_template("cpanel.html")
 
 
 def is_valid(email, password):
