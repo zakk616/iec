@@ -1,43 +1,17 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<title>Checkout</title>
-<link rel="stylesheet" href={{url_for('static', filename='css/cart.css')}} />
-<link rel="stylesheet" href={{url_for('static', filename='css/topStyle.css') }} />
-</head>
-<body>
-<div id="title">
-	<form>
-		<input id="searchBox" type="text" name="searchQuery">
-		<input id="searchButton" type="submit" value="Search">
-	</form>
-
-	{% if not loggedIn %}
-		<div id="signInButton">
-			<a class="link" href="/loginForm">Sign In</a>
-		</div>
-	{% else %}
-	<div class="dropdown">
-		<button class="dropbtn">Hello, <br>{{firstName}}</button>
-		<div class="dropdown-content">
-			<a href="/account/orders">Your orders</a>
-			<a href="/account/profile">Your profile</a>
-			<hr>
-			<a href="/logout">Sign Out</a>
-		</div>
+{% extends "layout.html" %} {% block content %}
+<div class="display main-card shadow">
+<div class="card text-center item-card shadow-lg">
+	<div class="card-header">
+		Proceed to Pay
 	</div>
-	{% endif %}
-	<div id="kart">
-		<a class="link" href="/cart">
-		<img src={{url_for('static', filename='images/shoppingCart.png')}} id="cartIcon" />
-		CART {{noOfItems}}
-		</a>
+	<div class="card-body">
+	  <span id="subtotal"> Rs {{totalPrice}} </span>
 	</div>
+	<div class="card-footer text-muted">	
+		<a href="#" class="btn btn-primary">Pay</a>
+	</div>
+  </div>
 </div>
-<div id="total">
-	<span id="subtotal">Proceed to pay Rs {{totalPrice}} </span> You'll be redirected to instamojo app.
 </div>
-<a href="/instamojo">Pay</a>
-</body>
-</html>
+<div>{% endblock content %}</div>
 

@@ -26,6 +26,8 @@
         width: 250px;
         margin: auto;
         margin-bottom: 5px;
+        border-radius: 0px;
+        border: 1px solid;
       }
 
       .item-container {
@@ -121,7 +123,7 @@
 
             <a class="nav-item nav-link" href="/loginForm">
               <i class="fa fa-sign-in fa-2x" aria-hidden="true"></i>
-              <!-- Sign In -->
+              Sign In
             </a>
 
             {% else %}
@@ -135,10 +137,10 @@
               aria-expanded="false"
             >
               <i class="fa fa-user fa-2x" aria-hidden="true"></i>
-              <!-- {{firstName}} -->
+              {{firstName}}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a href="/account/orders" class="dropdown-item">Your orders</a>
+              <a href="#" class="dropdown-item">Your orders</a>
               <a href="/account/profile" class="dropdown-item">Your profile</a>
 
               <div class="dropdown-divider"></div>
@@ -151,9 +153,7 @@
           </li>
           <li>
             <a class="nav-item nav-link" href="/cart">
-              <!-- <img src={{url_for('static', filename='images/shoppingCart.png')}}
-              id="cartIcon" style="height: 40px;" /> -->
-              <i class="fa fa-cart-arrow-down fa-2x" aria-hidden="true"></i>
+              <i class="fa fa-cart-arrow-down fa-2x" aria-hidden="true">Cart</i>
               <span
                 class="badge rounded-pill bg-warning text-dark position-absolute translate-middle"
                 >{{noOfItems}}</span
