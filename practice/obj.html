@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <script>
+      function Person(name, age, contact) {
+        this.name = name;
+        this.age = age;
+        this.contact = contact;
+      }
+
+      function create() {
+        var name = document.getElementById("name").value;
+        var age = document.getElementById("age").value;
+        var contact = document.getElementById("contact").value;
+
+        var p1 = new Person(name, age, contact);
+
+        document.getElementById("result").innerHTML =
+          p1.name + "<br>" + p1.age + "<br>" + p1.contact;
+      }
+    </script>
+  </head>
+  <body>
+    <input id="name" placeholder="Name" />
+    <input id="age" placeholder="Age" />
+    <input id="contact" placeholder="Contact" />
+    <button onclick="create()">Create</button>
+    <p id="result"></p>
+  </body>
+</html>

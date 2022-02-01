@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <script>
+      function check() {
+        var num = document.getElementById("number").value;
+        if (num % 2 == 0) {
+          document.getElementById("result").innerHTML = "Even";
+        } else {
+          document.getElementById("result").innerHTML = "Odd";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <input id="number" />
+    <button onclick="check()">Check</button>
+    <p id="result"></p>
+  </body>
+</html>
