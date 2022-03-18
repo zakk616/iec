@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Character-set Metadata -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Viewport Metadata -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Webpage Logo -->
+    <link rel="shortcut icon" href="./assets/img/favicon.svg" />
+    <!-- Webpage Title -->
+    <title>Zakaria | Portfolio</title>
+
+    <!-- Import CSS: Main Stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/css-font-awsome.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+    <link rel="stylesheet" href="css/css-profile-card.css" />
+    <link rel="stylesheet" href="css/css-download.css" />
+    <link rel="stylesheet" href="css/css-main.css" />
+  </head>
+
+  <body>
+    <div id="particles-js">
+      <div id="js-dim"></div>
+      <a id="js-download" class="download" href="#"></a>
+      <div class="cv-role" id="cv-role">
+        <a
+          href="./public/dotnet-CV.pdf"
+          class="js-dismiss"
+          data-os="Dotnet FullStack"
+        >
+          <img
+            src="images/img-dotnet.svg"
+            style="width: 200px"
+            alt="dotnet icon"
+          />
+        </a>
+        <a
+          href="./public/ML-CV.pdf"
+          class="js-dismiss"
+          data-os="Machine Learning"
+        >
+          <img
+            src="images/img-tensorflow.svg"
+            style="width: 200px"
+            alt="tensorflow icon"
+          />
+        </a>
+      </div>
+
+      <div class="header">
+        <h1>
+          <span class="site-title">MUHAMMAD ZAKARIA</span>
+          <div class="site-description">
+            <p id="typed" style="display: inline"></p>
+          </div>
+        </h1>
+
+        <div class="header-links">
+          <a class="link" href="#about" data-scroll>About Me</a>
+          <a class="link" href="#skills" data-scroll>Skills</a>
+        </div>
+      </div>
+      <a class="down" href="#about" data-scroll
+        ><i class="icon fa fa-chevron-down" aria-hidden="true"></i
+      ></a>
+    </div>
+
+    <section id="about">
+      <!-- Profile Card -->
+
+      <div class="wrapper">
+        <div class="profile-card js-profile-card container">
+          <div class="profile-card__img">
+            <img src="images/img-profile-dp.png" alt="profile card" />
+          </div>
+
+          <div class="profile-card__cnt js-profile-cnt">
+            <div class="profile-card__name" style="font-family: 'Quicksand'">
+              Muhammad Zakaria
+            </div>
+            <div class="profile-card__txt" style="font-family: 'Ubuntu'">
+              I am an IT graduate, Software Devloper and Machine Learning
+              Expert. I love software development and good software
+              architecture. I contribute to open-source projects from
+              time-to-time.
+            </div>
+            <div class="profile-card-loc">
+              <span class="profile-card-loc__.profile-icon">
+                <i class="profile-icon fa fa-map-marker" aria-hidden="true"></i>
+              </span>
+
+              <span
+                class="profile-card-loc__txt"
+                style="font-family: 'Quicksand'"
+              >
+                Quetta, Pakistan
+              </span>
+            </div>
+
+            <!-- Social -->
+            <div class="profile-card-social">
+              <a
+                href="https://www.facebook.com/muhammad.zakaria616"
+                class="profile-card-social__item facebook"
+                target="_blank"
+              >
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+
+              <a
+                href="https://twitter.com/MZakariaFani"
+                class="profile-card-social__item twitter"
+                target="_blank"
+              >
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/zakk616"
+                class="profile-card-social__item behance"
+                target="_blank"
+              >
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+
+              <a
+                href="https://github.com/zakk616"
+                class="profile-card-social__item github"
+                target="_blank"
+              >
+                <i class="fa fa-github" aria-hidden="true"></i>
+              </a>
+            </div>
+            <!-- End Social -->
+
+            <div class="profile-card-ctr">
+              <button class="profile-card__button button--blue js-message-btn">
+                Message
+              </button>
+              <a
+                class="profile-card__button button--orange"
+                href="https://www.upwork.com/freelancers/zakk616"
+                target="_blank"
+                >Hire</a
+              >
+            </div>
+          </div>
+
+          <div class="profile-card-message js-message">
+            <form class="profile-card-form" action="send.php" method="POST">
+              <div class="container">
+                <div class="row">
+                  <input
+                    class="col-md-5 col-sm-6 mr-lg-2"
+                    placeholder="Your Name"
+                    name="uname"
+                    minlength="2"
+                    maxlength="50"
+                    required
+                  />
+                  <input
+                    class="col"
+                    placeholder="Your email"
+                    type="email"
+                    name="email"
+                    minlength="5"
+                    maxlength="50"
+                    required
+                  />
+                </div>
+                <div class="row">
+                  <textarea
+                    class="col"
+                    placeholder="Say something..."
+                    name="message"
+                    minlength="10"
+                    required
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="profile-card-form__bottom">
+                <button
+                  class="profile-card__button button--blue"
+                  type="submit"
+                  name="Submit"
+                >
+                  Send
+                </button>
+
+                <button
+                  class="profile-card__button button--gray js-message-close"
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+
+            <div class="profile-card__overlay js-message-close"></div>
+          </div>
+        </div>
+      </div>
+      <!-- End of Profile Card -->
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <!-- Languages -->
+        <div class="row justify-content-center">
+          <h2 class="skill-title">Languages</h2>
+        </div>
+        <div class="row justify-content-center">
+          <div class="skill-icon col">
+            <i class="devicon-cplusplus-plain-wordmark colored"></i>
+            <i class="devicon-csharp-plain-wordmark colored"></i>
+            <i class="devicon-python-plain-wordmark colored"></i>
+            <i class="devicon-html5-plain-wordmark colored"></i>
+            <i class="devicon-css3-plain-wordmark colored"></i>
+            <i class="devicon-javascript-plain colored"></i>
+          </div>
+        </div>
+
+        <!-- Frameworks -->
+        <div class="row justify-content-center">
+          <h2 class="skill-title">Frameworks</h2>
+        </div>
+        <div class="row justify-content-center">
+          <div class="skill-icon col">
+            <i class="devicon-dot-net-plain-wordmark colored"></i>
+            <i class="devicon-dotnetcore-plain colored"></i>
+            <i class="devicon-tensorflow-original-wordmark colored"></i>
+            <i class="col devicon-firebase-plain-wordmark colored"></i>
+            <i class="col devicon-amazonwebservices-plain-wordmark colored"></i>
+            <i class="devicon-googlecloud-plain-wordmark colored"></i>
+            <i class="col devicon-heroku-original-wordmark colored"></i>
+            <i class="col devicon-flask-plain-wordmark colored"></i>
+            <i class="col devicon-sqlalchemy-plain-wordmark colored"></i>
+            <i class="col devicon-bootstrap-plain-wordmark colored"></i>
+          </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="row justify-content-center">
+          <h2 class="skill-title">Tools</h2>
+        </div>
+        <div class="row justify-content-center">
+          <div class="skill-icon col">
+            <i class="devicon-visualstudio-plain colored"></i>
+            <i class="devicon-vscode-plain-wordmark colored"></i>
+            <i class="devicon-jupyter-plain-wordmark colored"></i>
+            <i class="devicon-wordpress-plain-wordmark colored"></i>
+          </div>
+        </div>
+
+        <!-- Databases -->
+        <div class="row justify-content-center">
+          <h2 class="skill-title">Databases</h2>
+        </div>
+        <div class="row justify-content-center">
+          <div class="skill-icon col">
+            <i class="devicon-microsoftsqlserver-plain-wordmark colored"></i>
+            <i class="col devicon-mysql-plain-wordmark colored"></i>
+          </div>
+        </div>
+
+        <!-- Version Control -->
+        <div class="row justify-content-center">
+          <h2 class="skill-title">Version Control</h2>
+        </div>
+        <div class="row justify-content-center">
+          <div class="skill-icon col">
+            <i class="devicon-git-plain-wordmark colored"></i>
+            <i class="col devicon-github-original-wordmark colored"></i>
+          </div>
+        </div>
+
+        <!-- Operating Systems -->
+        <div class="row justify-content-center">
+          <h2 class="skill-title">Operating Systems</h2>
+        </div>
+        <div class="row justify-content-center">
+          <div class="skill-icon col">
+            <i class="col devicon-windows8-original colored"></i>
+            <i class="devicon-ubuntu-plain-wordmark colored"></i>
+            <i class="devicon-debian-plain-wordmark colored"></i>
+          </div>
+        </div>
+      </div>
+      <!-- Container-->
+    </section>
+
+    <footer class="footer">
+      <p>&copy; Muhammad Zakaria - 2022</p>
+    </footer>
+
+    <!-- Import JS: Particles Theme -->
+    <!-- <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> -->
+    <script src="js/js-particles.min.js"></script>
+    <script src="js/js-particles-config.js"></script>
+    <!-- Import JS: Sweet Scroll -->
+    <script src="js/js-sweet-scroll.min.js"></script>
+    <!-- Import JS: Google Analytics -->
+    <script src="js/js-google-analytics.js"></script>
+    <!-- Import JS: Typed.js -->
+    <script src="js/js-typed.js"></script>
+    <script>
+      var typed = new Typed("#typed", {
+        strings: [
+          "Dotnet Developer",
+          "Fullstack Web-Developer",
+          "Machine Learning Expert",
+        ],
+        typeSpeed: 50,
+        backSpeed: 40,
+        backDelay: 1800,
+        smartBackspace: true,
+        loop: true,
+        showCursor: true,
+        contentType: null,
+      });
+    </script>
+    <!-- Bootstrap -->
+    <script
+      src="js/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="js/umd-popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="js/js-bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Import JS: Main Script -->
+    <script src="js/js-main.js"></script>
+  </body>
+</html>
